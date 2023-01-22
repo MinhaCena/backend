@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class School extends Model
 {
     use HasFactory;
-
     use softdeletes;
 
     protected $table = 'schools';
@@ -31,10 +30,4 @@ class School extends Model
         'email' => 'string',
         'phone' => 'string'
     ];
-
-    protected $attributes = [
-        'type' => TypeEnum::PUBLIC
-    ];
-
-
 }

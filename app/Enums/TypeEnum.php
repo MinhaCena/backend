@@ -9,7 +9,4 @@ final class TypeEnum extends Enum
 {
     const PUBLIC = 'public';
     const PRIVATE = 'private';
-    const TESTE = [
-        'private', 'public'
-    ];
 }
