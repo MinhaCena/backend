@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Enums\TypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class School extends Model
 {
     use HasFactory;
 
-    protected $table = 'school';
+    use softdeletes;
 
-    protected $fillable = ['name', 'cnpj', 'city', 'uf', 'type', 'email', 'phone', 'id_registrant'];
+    protected $table = 'schools';
+
+    protected $fillable = ['name', 'cnpj', 'city', 'uf', 'type', 'email', 'phone', 'registrant_id'];
 
     /**
      * The attributes that should be cast.
@@ -26,6 +30,10 @@ class School extends Model
         'type' => 'string',
         'email' => 'string',
         'phone' => 'string'
+    ];
+
+    protected $attributes = [
+        'type' => TypeEnum::PUBLIC
     ];
 
 

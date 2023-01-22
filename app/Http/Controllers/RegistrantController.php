@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RegistrantController extends Controller
 {
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $data = new Registrant();
         $data->name = $request->name;

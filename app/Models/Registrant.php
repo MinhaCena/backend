@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Registrant extends Model
 {
     use HasFactory;
 
+    use softdeletes;
 
-    protected $table = 'registrant';
+
+    protected $table = 'registrants';
 
     protected $fillable = ['name', 'email', 'role', 'whatsapp'];
 
@@ -28,6 +31,6 @@ class Registrant extends Model
 
     public function schools()
     {
-        return $this->hasMany(School::class, 'id_registrant');
+        return $this->hasMany(School::class, 'registrant_id');
     }
 }
